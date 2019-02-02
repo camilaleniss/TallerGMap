@@ -72,8 +72,19 @@ namespace TallerGmap.Model
         /// <param name="earthquakesJson">The JSON that contains the information of the earthquakes.</param>
         private void WriteEarthquakes(string earthquakesJson)
         {
-            StreamWriter sw = new StreamWriter(JSON_LOCATION, false);
-            sw.WriteLine(earthquakesJson);
+            try
+            {
+
+                StreamWriter sw = new StreamWriter(JSON_LOCATION, false);
+
+                sw.WriteLine(earthquakesJson);
+
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
         }
 
         /// <summary>
@@ -90,10 +101,13 @@ namespace TallerGmap.Model
             return url.ToString();
         }
 
+
+
         public void UpdateEarthquakes()
         {
-            string url = MakeUrl("2015-01-01", 8);
+            string url = MakeUrl("2015-01-01", 8); //Example
             string json = GetEarthquakesJson(url);
+            Console.WriteLine(json);
             WriteEarthquakes(json);
         }
     }

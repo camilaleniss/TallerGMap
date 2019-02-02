@@ -8,17 +8,17 @@ namespace TallerGmap.Model
 {
     public class Earthquake
     {
-        private long time;
-        private int longitud;
-        private int latitud;
-        private double magnitud;
+        public long Time { get; set; }
+        public int Longitude { get; set; }
+        public int Latitude { get; set; }
+        public double Magnitude { get; set; }
 
-        public Earthquake(long time, int longitud, int latitud, double magnitud)
+        public Earthquake(long time, int longitude, int latitude, double magnitude)
         {
-            this.time = time;
-            this.longitud = longitud;
-            this.latitud = latitud;
-            this.magnitud = magnitud;
+            this.Time = time;
+            this.Longitude = longitude;
+            this.Latitude = latitude;
+            this.Magnitude = magnitude;
         }
 
 

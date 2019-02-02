@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace TallerGmap.Model
 {
+    /// <summary>The class that contains the earthquakes and obtains them.</summary>
     public class Earth
     {
+
+        /// <summary>the minimum magnitude that the earthquakes in the list will have.</summary>
+        public const double MINIMUM_MAGNITUDE = 4;
 
         /// <summary>The location of the json file with the Earthquakes.</summary>
         public const string JSON_LOCATION = "..\\..\\Earthquakes.json";
@@ -18,23 +23,23 @@ namespace TallerGmap.Model
         public const string API_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson";
 
         /// <summary>The list that contains the earthquakes.</summary>
-        private List<Earthquake> earthquakes;
+        public List<Earthquake> Earthquakes;
 
         /// <summary>The currently selected earthquake.</summary>
-        private Earthquake selectedEarthquake;
+        public Earthquake SelectedEarthquake;
 
         /// <summary>
-        ///  Constructor method of the Earth class. <para>
+        ///  Constructor method of the Earth class. <para/>
         /// <b>Post:</b> The earthquakes list is instanciated.
         /// </summary>
         public Earth()
         {
-            earthquakes = new List<Earthquake>();
+            Earthquakes = new List<Earthquake>();
             UpdateEarthquakes();
         }
 
         /// <summary>
-        ///  Gets the earthquakes from the specified <paramref name="url"/>. <para>
+        ///  Gets the earthquakes from the specified <paramref name="url"/>. <para/>
         /// </summary>
         /// <param name="url">The url that containts the information about the Earthquakes in JSON format.</param>
         /// <returns>Returns a string with the JSON of the earthquakes.</returns>
@@ -66,20 +71,31 @@ namespace TallerGmap.Model
         }
 
         /// <summary>
-        ///  Writes the JSON information <paramref name="earthquakesJson"/> in the default location. <para>
+        ///  Writes the JSON information <paramref name="earthquakesJson"/> in the default location. <para/>
         /// <b>Post:</b> The earthquakes list is written into a file in the default location.
         /// </summary>
         /// <param name="earthquakesJson">The JSON that contains the information of the earthquakes.</param>
         private void WriteEarthquakes(string earthquakesJson)
         {
-            StreamWriter sw = new StreamWriter(JSON_LOCATION, false);
-            sw.WriteLine(earthquakesJson);
+            try
+            {
+
+                StreamWriter sw = new StreamWriter(JSON_LOCATION, false);
+
+                sw.WriteLine(earthquakesJson);
+
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
         }
 
         /// <summary>
         /// Makes an url to the api with the given parameters.
         /// </summary>
-        /// <param name="startTime">The starting date for the earthquakes. It must be in YYYY-MM-DD format.</param>
+        /// <param name="startTime">The starting date for the earthquakes. It must be in yyyy-MM-dd format.</param>
         /// <param name="minMagnitude">The minimum magnitude for the earthquakes. It must be a positive decimal number.</param>
         /// <returns>Returns an url to the api with the given parameters.</returns>
         private string MakeUrl(string startTime, double minMagnitude)
@@ -90,11 +106,95 @@ namespace TallerGmap.Model
             return url.ToString();
         }
 
-        public void UpdateEarthquakes()
+        /// <summary>
+        /// Downloads the list of earthquakes from the api and writes it in a file.
+        /// </summary>
+        /// /// <exception cref="System.Net.WebException">This exception is thrown if the user is not connected to the internet</exception>
+        public void DownloadEarthquakes()
         {
-            string url = MakeUrl("2015-01-01", 8);
+            string date = DateTime.Today.ToString("yyyy-MM-dd");
+            string url = MakeUrl(date, MINIMUM_MAGNITUDE);
             string json = GetEarthquakesJson(url);
             WriteEarthquakes(json);
+        }
+
+        /// <summary>
+        /// Updates the list of earthquakes using, if possible, the api.
+        /// </summary>
+        public void UpdateEarthquakes()
+        {
+            try
+            {
+                DownloadEarthquakes();
+            } catch(WebException e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            LoadEarthquakes();
+        }
+
+        /// <summary>
+        /// Loads the earthquakes from the file to the list.
+        /// </summary>
+        public void LoadEarthquakes()
+        {
+            string json = ReadEarthquakes();
+            CreateEarthquakes(json);
+        }
+
+        /// <summary>
+        /// Reads the json with the earthquakes from the file.
+        /// </summary>
+        /// <returns>Returns the json with the earthquakes from the file.</returns>
+        private string ReadEarthquakes()
+        {
+            String line;
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                StreamReader sr = new StreamReader(JSON_LOCATION);
+
+                line = "";
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    sb.Append(line);
+                }
+
+                sr.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Uses the json with the earthquakes to create the list of earthquakes
+        /// </summary>
+        /// <param name="json">The json with the earthquakes from the file.</param>
+        private void CreateEarthquakes(string json)
+        {
+            dynamic jsonObject = JsonConvert.DeserializeObject(json); 
+            if (jsonObject.metadata.count > 0) //If there are earthquakes
+            {
+                for (int i = 0; i < jsonObject.features.Count; i++)
+                {
+                    dynamic earthquakeInfo = jsonObject.features[i];
+
+                    string place = earthquakeInfo.properties.place;
+                    long time = earthquakeInfo.properties.time;
+                    double longitude = earthquakeInfo.geometry.coordinates[0];
+                    double latitude = earthquakeInfo.geometry.coordinates[1];
+                    double magnitude = earthquakeInfo.properties.mag;
+                    string url = earthquakeInfo.properties.url;
+
+                    Earthquake current = new Earthquake(place, time, longitude, latitude, magnitude, url);
+
+                    Earthquakes.Add(current);
+                }
+            }
         }
     }
 }

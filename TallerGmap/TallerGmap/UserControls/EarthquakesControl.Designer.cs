@@ -42,11 +42,12 @@
             // 
             // butShowmore
             // 
+            this.butShowmore.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butShowmore.Location = new System.Drawing.Point(0, 336);
             this.butShowmore.Name = "butShowmore";
             this.butShowmore.Size = new System.Drawing.Size(252, 35);
             this.butShowmore.TabIndex = 1;
-            this.butShowmore.Text = "Ver más información";
+            this.butShowmore.Text = "More Information";
             this.butShowmore.UseVisualStyleBackColor = true;
             // 
             // EarthquakesControl

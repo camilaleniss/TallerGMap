@@ -11,9 +11,9 @@ using TallerGmap.Model;
 
 namespace TallerGmap
 {
-    public partial class Ventana : Form
+    public partial class Window : Form
     {
-        public Ventana()
+        public Window()
         {
             InitializeComponent();
             new Earth();

@@ -79,11 +79,8 @@ namespace TallerGmap.Model
         {
             try
             {
-
                 StreamWriter sw = new StreamWriter(JSON_LOCATION, false);
-
                 sw.WriteLine(earthquakesJson);
-
                 sw.Close();
             }
             catch (Exception e)
@@ -153,7 +150,6 @@ namespace TallerGmap.Model
             try
             {
                 StreamReader sr = new StreamReader(JSON_LOCATION);
-
                 line = "";
 
                 while ((line = sr.ReadLine()) != null)
@@ -176,11 +172,13 @@ namespace TallerGmap.Model
         /// <param name="json">The json with the earthquakes from the file.</param>
         private void CreateEarthquakes(string json)
         {
+            //Instance a dynamic object using the json with the earthquakes
             dynamic jsonObject = JsonConvert.DeserializeObject(json); 
             if (jsonObject.metadata.count > 0) //If there are earthquakes
             {
                 for (int i = 0; i < jsonObject.features.Count; i++)
                 {
+                    //Gets each feature (earthquake) to obtain the info
                     dynamic earthquakeInfo = jsonObject.features[i];
 
                     string place = earthquakeInfo.properties.place;

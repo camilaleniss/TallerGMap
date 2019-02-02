@@ -8,7 +8,7 @@ namespace TallerGmap.Model
 {
 
     /// <summary>
-    /// This class represents an earthquake
+    /// This class represents an Earthquake
     /// </summary>
 
     public class Earthquake
@@ -21,11 +21,27 @@ namespace TallerGmap.Model
         /// The place where the earthquake ocurred.
         /// </summary>
         public string Place { get; set; }
+        /// <summary>
+        /// The coordinate of the earthquake's longitude
+        /// </summary>
         public double Longitude { get; set; }
+        /// <summary>
+        /// The coordinate of the earthquake's latitude
+        /// </summary>
         public double Latitude { get; set; }
+        /// <summary>
+        /// The magnitude of the earthquake
+        /// </summary>
         public double Magnitude { get; set; }
+        /// <summary>
+        /// The url of the web site where you can find more information about the earthquake
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        ///  Constructor method of the Earthquake class. <para/>
+        /// <b>Post:</b> The earthquake is instanciated.
+        /// </summary>
         public Earthquake(string place, long time, double longitude, double latitude, double magnitude, string url)
         {
             this.Place = place;
@@ -36,19 +52,28 @@ namespace TallerGmap.Model
             this.Url = url;
             GetHour();
         }
-
+        /// <summary>
+        /// The toString that returns info about the magnitude and the place where the earthquake occurred
+        /// </summary>
+        /// <returns>An string with the information</returns>
         public override string ToString()
         {
             return "Mag: "+Magnitude+" - "+Place;
         }
-
+        /// <summary>
+        /// This method gets the date from the value Time in a Date format to be shown in the interface
+        /// </summary>
+        /// <returns>The date where the earthquake occurred</returns>
         public string GetDate()
         {
             var localDateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(Time).DateTime.ToLocalTime();            
             return localDateTimeOffset.ToString("MMM dd yyyy");
 
         }
-
+        /// <summary>
+        /// This method gets the hour from the value Time in an hour format to be shown in the interface
+        /// </summary>
+        /// <returns>The hour where the earthquake occurred</returns>
         public string GetHour()
         {
             var localDateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(Time).DateTime.ToLocalTime();

@@ -44,15 +44,16 @@ namespace TallerGmap.Model
         public string GetDate()
         {
             var localDateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(Time).DateTime.ToLocalTime();            
-            return localDateTimeOffset.ToString("MMM d yyyy");
+            return localDateTimeOffset.ToString("MMM dd yyyy");
 
         }
 
         public string GetHour()
         {
             var localDateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(Time).DateTime.ToLocalTime();
-            Console.WriteLine(localDateTimeOffset);
             return localDateTimeOffset.ToString("hh:mm tt");
         }
+
+
     }
 }

@@ -13,6 +13,9 @@ namespace TallerGmap.Model
     public class Earth
     {
 
+        /// <summary>the minimum magnitude that the earthquakes in the list will have.</summary>
+        public const double MINIMUM_MAGNITUDE = 4;
+
         /// <summary>The location of the json file with the Earthquakes.</summary>
         public const string JSON_LOCATION = "..\\..\\Earthquakes.json";
 
@@ -92,7 +95,7 @@ namespace TallerGmap.Model
         /// <summary>
         /// Makes an url to the api with the given parameters.
         /// </summary>
-        /// <param name="startTime">The starting date for the earthquakes. It must be in YYYY-MM-DD format.</param>
+        /// <param name="startTime">The starting date for the earthquakes. It must be in yyyy-MM-dd format.</param>
         /// <param name="minMagnitude">The minimum magnitude for the earthquakes. It must be a positive decimal number.</param>
         /// <returns>Returns an url to the api with the given parameters.</returns>
         private string MakeUrl(string startTime, double minMagnitude)
@@ -109,7 +112,8 @@ namespace TallerGmap.Model
         /// /// <exception cref="System.Net.WebException">This exception is thrown if the user is not connected to the internet</exception>
         public void DownloadEarthquakes()
         {
-            string url = MakeUrl("2015-01-01", 8); //Example
+            string date = DateTime.Today.ToString("yyyy-MM-dd");
+            string url = MakeUrl(date, MINIMUM_MAGNITUDE);
             string json = GetEarthquakesJson(url);
             WriteEarthquakes(json);
         }

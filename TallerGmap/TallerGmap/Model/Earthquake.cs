@@ -17,6 +17,7 @@ namespace TallerGmap.Model
 
         public Earthquake(string place, long time, double longitude, double latitude, double magnitude, string url)
         {
+            this.Place = place;
             this.Time = time;
             this.Longitude = longitude;
             this.Latitude = latitude;
@@ -24,7 +25,10 @@ namespace TallerGmap.Model
             this.Url = url;
         }
 
-
+        public override string ToString()
+        {
+            return "Mag: "+Magnitude+" - "+Place;
+        }
 
 
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TallerGmap.Model
 {
+
     public class Earthquake
     {
         private long time;

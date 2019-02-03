@@ -19,7 +19,9 @@ namespace TallerGmap.UserControls
     /// </summary>
     public partial class GmapControl : UserControl
     {
-
+        /// <summary>
+        /// The connection with the main window
+        /// </summary>
         public Window Window { private get; set; }
 
         /// <summary>

@@ -23,6 +23,7 @@ namespace TallerGmap
         /// </summary>
         public Window()
         {
+            this.Icon = new Icon("..\\..\\res\\earthquake.ico");
             InitializeComponent();
             earth = new Earth();
             InitializeEarthquakes();
@@ -51,7 +52,7 @@ namespace TallerGmap
         /// </summary>
         public void InitializeMap()
         {
-
+            
 
 
         }
@@ -62,6 +63,7 @@ namespace TallerGmap
         public void ModifyInfo(int index)
         {
             earth.SelectEarthquake(index);
+            gmapControl.ShowEarthquake(earth.GetSelectedLatitude(), earth.GetSelectedLongitude());
             string[] info = new string[6];
             info[0] = earth.GetSelectedPlace();
             info[1] = earth.GetSelectedMagnitude().ToString();

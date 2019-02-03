@@ -41,6 +41,7 @@
             this.labInfoMag = new System.Windows.Forms.Label();
             this.labInfoPlace = new System.Windows.Forms.Label();
             this.butShow = new System.Windows.Forms.Button();
+            this.creditsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labPlace
@@ -174,11 +175,22 @@
             this.butShow.UseVisualStyleBackColor = true;
             this.butShow.Click += new System.EventHandler(this.butShow_Click);
             // 
+            // creditsLabel
+            // 
+            this.creditsLabel.AutoSize = true;
+            this.creditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.creditsLabel.Location = new System.Drawing.Point(53, 357);
+            this.creditsLabel.Name = "creditsLabel";
+            this.creditsLabel.Size = new System.Drawing.Size(196, 12);
+            this.creditsLabel.TabIndex = 13;
+            this.creditsLabel.Text = "Icon made by Freepik from www.flaticon.com ";
+            // 
             // InfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.creditsLabel);
             this.Controls.Add(this.butShow);
             this.Controls.Add(this.labInfoHour);
             this.Controls.Add(this.labInfoDate);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.Label labInfoMag;
         private System.Windows.Forms.Label labInfoPlace;
         private System.Windows.Forms.Button butShow;
+        private System.Windows.Forms.Label creditsLabel;
     }
 }

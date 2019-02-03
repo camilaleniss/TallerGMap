@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.MapProviders;
 
 namespace TallerGmap.UserControls
 {
@@ -21,6 +25,31 @@ namespace TallerGmap.UserControls
         public GmapControl()
         {
             InitializeComponent();
+        }
+
+        private void gMap_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GmapControl_Load(object sender, EventArgs e)
+        {
+            gMap.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gMap.ShowCenter = false;
+        }
+
+        public void ShowEarthquake(double latitude, double longitude)
+        {
+            gMap.Overlays.Clear();
+            gMap.Position = new GMap.NET.PointLatLng(latitude, longitude);
+            gMap.Zoom = 5;
+            GMapOverlay markers = new GMapOverlay("markers");
+            GMapMarker marker = new GMarkerGoogle(
+                new PointLatLng(latitude, longitude),
+                GMarkerGoogleType.orange_small);
+            markers.Markers.Add(marker);
+            gMap.Overlays.Add(markers);
         }
     }
 }

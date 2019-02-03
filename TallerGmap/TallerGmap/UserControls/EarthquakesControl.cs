@@ -38,8 +38,12 @@ namespace TallerGmap.UserControls
 
         private void listEarthquakes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.Write("Seleccionado");
-            //int index = listEarthquakes.SelectedIndices();
+            if(listEarthquakes.SelectedIndices.Count > 0)
+            {
+                int index = listEarthquakes.SelectedIndices[0];
+                window.ModifyInfo(index);
+            }
+            
         }
     }
 }

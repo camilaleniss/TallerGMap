@@ -22,7 +22,10 @@ namespace TallerGmap.UserControls
             this.window = window;
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Getter of the listview 
+        /// </summary>
+        /// <returns></returns>
         public ListView getListEarthquakes()
         {
             return listEarthquakes;
@@ -35,7 +38,8 @@ namespace TallerGmap.UserControls
 
         private void listEarthquakes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Console.Write("Seleccionado");
+            //int index = listEarthquakes.SelectedIndices();
         }
     }
 }

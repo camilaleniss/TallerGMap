@@ -27,6 +27,8 @@ namespace TallerGmap
             InitializeComponent();
             earth = new Earth();
             InitializeEarthquakes();
+            earthquakesControl.Window = this;
+            infoControl.Window = this;
         }
         /// <summary>
         /// This method initialize the earthquakes shown in the list and in the map.

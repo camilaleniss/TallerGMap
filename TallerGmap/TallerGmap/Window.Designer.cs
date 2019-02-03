@@ -31,9 +31,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.earthquakesControl = new TallerGmap.UserControls.EarthquakesControl(this);
+            this.earthquakesControl = new TallerGmap.UserControls.EarthquakesControl();
             this.gmapControl = new TallerGmap.UserControls.GmapControl();
-            this.infoControl = new TallerGmap.UserControls.InfoControl(this);
+            this.infoControl = new TallerGmap.UserControls.InfoControl();
             this.SuspendLayout();
             // 
             // earthquakesControl
@@ -41,22 +41,22 @@
             this.earthquakesControl.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.earthquakesControl.Location = new System.Drawing.Point(1, -1);
             this.earthquakesControl.Name = "earthquakesControl";
-            this.earthquakesControl.Size = new System.Drawing.Size(252, 374);
+            this.earthquakesControl.Size = new System.Drawing.Size(353, 374);
             this.earthquakesControl.TabIndex = 0;
             // 
             // gmapControl
             // 
-            this.gmapControl.Location = new System.Drawing.Point(259, -1);
+            this.gmapControl.Location = new System.Drawing.Point(360, -1);
             this.gmapControl.Name = "gmapControl";
-            this.gmapControl.Size = new System.Drawing.Size(252, 374);
+            this.gmapControl.Size = new System.Drawing.Size(310, 374);
             this.gmapControl.TabIndex = 1;
             // 
             // infoControl
             // 
             this.infoControl.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.infoControl.Location = new System.Drawing.Point(503, -1);
+            this.infoControl.Location = new System.Drawing.Point(676, -1);
             this.infoControl.Name = "infoControl";
-            this.infoControl.Size = new System.Drawing.Size(252, 374);
+            this.infoControl.Size = new System.Drawing.Size(417, 374);
             this.infoControl.TabIndex = 2;
             // 
             // Window
@@ -65,7 +65,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(740, 374);
+            this.ClientSize = new System.Drawing.Size(1105, 374);
             this.Controls.Add(this.infoControl);
             this.Controls.Add(this.gmapControl);
             this.Controls.Add(this.earthquakesControl);

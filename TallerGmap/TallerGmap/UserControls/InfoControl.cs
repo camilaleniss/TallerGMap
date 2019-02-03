@@ -15,19 +15,19 @@ namespace TallerGmap.UserControls
     /// </summary>
     public partial class InfoControl : UserControl
     {
-        private Window window;
+        public Window Window { private get; set; }
+
         /// <summary>
         /// The constructor of the class
         /// </summary>
-        public InfoControl(Window window)
+        public InfoControl()
         {
-            this.window = window;
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         private void butShow_Click(object sender, EventArgs e)
         {
-            window.OpenURL();
+            Window.OpenURL();
         }
         /// <summary>
         /// This method modifies the information in the labels with the new information in the array

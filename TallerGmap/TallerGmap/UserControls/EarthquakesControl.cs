@@ -13,15 +13,16 @@ namespace TallerGmap.UserControls
     public partial class EarthquakesControl : UserControl
     {
 
-        private Window window;
+        public Window Window { private get; set; }
+
         /// <summary>
         /// The constructor from the Earthquakes control
         /// </summary>
-        public EarthquakesControl(Window window)
+        public EarthquakesControl()
         {
-            this.window = window;
             InitializeComponent();
         }
+
         /// <summary>
         /// Getter of the listview 
         /// </summary>
@@ -41,7 +42,7 @@ namespace TallerGmap.UserControls
             if(listEarthquakes.SelectedIndices.Count > 0)
             {
                 int index = listEarthquakes.SelectedIndices[0];
-                window.ModifyInfo(index);
+                this.Window.ModifyInfo(index);
             }
             
         }

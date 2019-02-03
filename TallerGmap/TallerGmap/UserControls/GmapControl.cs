@@ -42,7 +42,6 @@ namespace TallerGmap.UserControls
 
         public void ShowEarthquake(double latitude, double longitude)
         {
-            gMap.Overlays.Clear();
             gMap.Position = new GMap.NET.PointLatLng(latitude, longitude);
             gMap.Zoom = 5;
         }

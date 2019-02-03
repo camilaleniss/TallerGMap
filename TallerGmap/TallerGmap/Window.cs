@@ -29,6 +29,7 @@ namespace TallerGmap
             InitializeEarthquakes();
             earthquakesControl.Window = this;
             infoControl.Window = this;
+            gmapControl.Window = this;
         }
         /// <summary>
         /// This method initialize the earthquakes shown in the list and in the map.
@@ -59,16 +60,16 @@ namespace TallerGmap
             {
                 coordinates[0] = e.Longitude;
                 coordinates[1] = e.Latitude;
-                gmapControl.AddMarker(coordinates);
+                gmapControl.AddMarker(coordinates, e.Url);
             }
         }
+
         /// <summary>
         /// This method changes the info of the selected Earthquake
         /// </summary>
-        /// <param name="index"></param>
-        public void ModifyInfo(int index)
+        private void ModifyInfo()
         {
-            earth.SelectEarthquake(index);
+            
             gmapControl.ShowEarthquake(earth.GetSelectedLatitude(), earth.GetSelectedLongitude());
             string[] info = new string[6];
             info[0] = earth.GetSelectedPlace();
@@ -79,8 +80,28 @@ namespace TallerGmap
             info[5] = earth.GetSelectedHour();
 
             infoControl.modifyInformation(info);
-
         }
+
+        /// <summary>
+        /// Selects the earthquake with the given index
+        /// </summary>
+        /// <param name="index">The index of the earthquake</param>
+        public void SelectEarthquake(int index)
+        {
+            earth.SelectEarthquake(index);
+            ModifyInfo();
+        }
+
+        /// <summary>
+        /// Selects the earthquake with the given url
+        /// </summary>
+        /// <param name="url">The url of the earthquake</param>
+        public void SelectEarthquake(string url)
+        {
+            earth.SelectEarthquake(url);
+            ModifyInfo();
+        }
+
         /// <summary>
         /// This method opens the url to show more information about the earthquake
         /// </summary>

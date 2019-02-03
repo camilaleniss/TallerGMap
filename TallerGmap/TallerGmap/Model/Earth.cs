@@ -29,12 +29,18 @@ namespace TallerGmap.Model
         public Earthquake SelectedEarthquake;
 
         /// <summary>
+        /// The dictionary that maps every earthquake with its url
+        /// </summary>
+        private Dictionary<string, Earthquake> earthquakeMap;
+
+        /// <summary>
         ///  Constructor method of the Earth class. <para/>
         /// <b>Post:</b> The earthquakes list is instanciated.
         /// </summary>
         public Earth()
         {
             Earthquakes = new List<Earthquake>();
+            earthquakeMap = new Dictionary<string, Earthquake>();
             UpdateEarthquakes();
         }
 
@@ -190,6 +196,8 @@ namespace TallerGmap.Model
 
                     Earthquake current = new Earthquake(place, time, longitude, latitude, magnitude, url);
 
+                    earthquakeMap.Add(url, current);
+
                     Earthquakes.Add(current);
                 }
             }
@@ -204,6 +212,17 @@ namespace TallerGmap.Model
         public void SelectEarthquake(int index)
         {
             SelectedEarthquake = Earthquakes[index];
+        }
+
+        /// <summary>
+        /// Sets the selected earthquake to the earthquake with the given url.<para/>
+        /// <b>Pre:</b> The earthquakes list is not null and has at least one earthquake.<para/>
+        /// <b>Post:</b> The selected earthquake is the earthquake with the given url.
+        /// </summary>
+        /// <param name="url">The url of the earthquake. It must be a valid url for the list of earthquakes.</param>
+        public void SelectEarthquake(string url)
+        {
+            SelectedEarthquake = earthquakeMap[url];
         }
 
         /// <summary>

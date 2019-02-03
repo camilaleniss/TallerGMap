@@ -42,7 +42,7 @@ namespace TallerGmap.UserControls
             if(listEarthquakes.SelectedIndices.Count > 0)
             {
                 int index = listEarthquakes.SelectedIndices[0];
-                this.Window.ModifyInfo(index);
+                this.Window.SelectEarthquake(index);
             }
             
         }

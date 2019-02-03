@@ -19,6 +19,9 @@ namespace TallerGmap.UserControls
     /// </summary>
     public partial class GmapControl : UserControl
     {
+
+        public Window Window { private get; set; }
+
         /// <summary>
         /// The constructor of the class
         /// </summary>
@@ -50,13 +53,20 @@ namespace TallerGmap.UserControls
         /// Adds a marker in the map with the given coordinates
         /// </summary>
         /// <param name="coordinates">Coordinates of the earthquake. coordinates[0]=longitude, coordinates[1]=latitude </param>
-        public void AddMarker(double []coordinates)
+        public void AddMarker(double[] coordinates, string url)
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(coordinates[1], coordinates[0]),
               GMarkerGoogleType.orange_small);
+            marker.Tag = url;
             markersOverlay.Markers.Add(marker);
             gMap.Overlays.Add(markersOverlay);
+        }
+
+        private void gMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            string tag = (string)item.Tag;
+            Window.SelectEarthquake(tag);
         }
     }
 }

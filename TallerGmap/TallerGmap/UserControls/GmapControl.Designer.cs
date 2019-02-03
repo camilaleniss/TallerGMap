@@ -2,12 +2,12 @@
 {
     partial class GmapControl
     {
-        /// <summary> 
+        /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Limpiar los recursos que se estén usando.
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
@@ -22,7 +22,7 @@
 
         #region Código generado por el Diseñador de componentes
 
-        /// <summary> 
+        /// <summary>
         /// Método necesario para admitir el Diseñador. No se puede modificar
         /// el contenido de este método con el editor de código.
         /// </summary>
@@ -30,9 +30,9 @@
         {
             this.gMap = new GMap.NET.WindowsForms.GMapControl();
             this.SuspendLayout();
-            // 
+            //
             // gMap
-            // 
+            //
             this.gMap.Bearing = 0F;
             this.gMap.CanDragMap = true;
             this.gMap.EmptyTileColor = System.Drawing.Color.Navy;
@@ -57,9 +57,9 @@
             this.gMap.TabIndex = 0;
             this.gMap.Zoom = 2D;
             this.gMap.Load += new System.EventHandler(this.gMap_Load);
-            // 
+            //
             // GmapControl
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gMap);

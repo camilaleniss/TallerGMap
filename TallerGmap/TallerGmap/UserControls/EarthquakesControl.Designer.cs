@@ -39,7 +39,7 @@
             this.listEarthquakes.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEarthquakes.Location = new System.Drawing.Point(0, 0);
             this.listEarthquakes.Name = "listEarthquakes";
-            this.listEarthquakes.Size = new System.Drawing.Size(252, 374);
+            this.listEarthquakes.Size = new System.Drawing.Size(302, 374);
             this.listEarthquakes.TabIndex = 0;
             this.listEarthquakes.UseCompatibleStateImageBehavior = false;
             this.listEarthquakes.View = System.Windows.Forms.View.List;
@@ -52,7 +52,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.listEarthquakes);
             this.Name = "EarthquakesControl";
-            this.Size = new System.Drawing.Size(252, 374);
+            this.Size = new System.Drawing.Size(305, 374);
             this.ResumeLayout(false);
 
         }

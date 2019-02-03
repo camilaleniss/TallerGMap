@@ -51,9 +51,13 @@ namespace TallerGmap
         /// </summary>
         public void InitializeMap()
         {
-
-
-
+            double[] coordinates = new double[2];
+            foreach (Earthquake e in earth.Earthquakes)
+            {
+                coordinates[0] = e.Longitude;
+                coordinates[1] = e.Latitude;
+                gmapControl.AddMarker(coordinates);
+            }
         }
         /// <summary>
         /// This method changes the info of the selected Earthquake

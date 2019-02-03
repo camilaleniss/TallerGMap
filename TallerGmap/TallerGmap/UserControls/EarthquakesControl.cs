@@ -12,7 +12,9 @@ namespace TallerGmap.UserControls
 {
     public partial class EarthquakesControl : UserControl
     {
-
+        /// <summary>
+        /// The connection with the main window
+        /// </summary>
         public Window Window { private get; set; }
 
         /// <summary>

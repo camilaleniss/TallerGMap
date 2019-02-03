@@ -1,6 +1,9 @@
 ﻿namespace TallerGmap.UserControls
 {
-    partial class EarthquakesControl
+    /// <summary>
+    /// This class manage the visualization of the Earthquakes in a listView
+    /// </summary>
+    public partial class EarthquakesControl
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,33 +32,24 @@
         private void InitializeComponent()
         {
             this.listEarthquakes = new System.Windows.Forms.ListView();
-            this.butShowmore = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listEarthquakes
             // 
+            this.listEarthquakes.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEarthquakes.Location = new System.Drawing.Point(0, 0);
             this.listEarthquakes.Name = "listEarthquakes";
-            this.listEarthquakes.Size = new System.Drawing.Size(252, 329);
+            this.listEarthquakes.Size = new System.Drawing.Size(252, 374);
             this.listEarthquakes.TabIndex = 0;
             this.listEarthquakes.UseCompatibleStateImageBehavior = false;
-            // 
-            // butShowmore
-            // 
-            this.butShowmore.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butShowmore.Location = new System.Drawing.Point(0, 336);
-            this.butShowmore.Name = "butShowmore";
-            this.butShowmore.Size = new System.Drawing.Size(252, 35);
-            this.butShowmore.TabIndex = 1;
-            this.butShowmore.Text = "More Information";
-            this.butShowmore.UseVisualStyleBackColor = true;
+            this.listEarthquakes.View = System.Windows.Forms.View.List;
+            this.listEarthquakes.SelectedIndexChanged += new System.EventHandler(this.listEarthquakes_SelectedIndexChanged);
             // 
             // EarthquakesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.butShowmore);
             this.Controls.Add(this.listEarthquakes);
             this.Name = "EarthquakesControl";
             this.Size = new System.Drawing.Size(252, 374);
@@ -63,9 +57,13 @@
 
         }
 
+        private void UpdateGUI()
+        {
+
+        }
+
         #endregion
 
         private System.Windows.Forms.ListView listEarthquakes;
-        private System.Windows.Forms.Button butShowmore;
     }
 }

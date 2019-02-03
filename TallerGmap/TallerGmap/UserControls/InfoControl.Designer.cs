@@ -40,13 +40,14 @@
             this.labInfoLong = new System.Windows.Forms.Label();
             this.labInfoMag = new System.Windows.Forms.Label();
             this.labInfoPlace = new System.Windows.Forms.Label();
+            this.butShow = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labPlace
             // 
             this.labPlace.AutoSize = true;
             this.labPlace.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labPlace.Location = new System.Drawing.Point(20, 89);
+            this.labPlace.Location = new System.Drawing.Point(22, 47);
             this.labPlace.Name = "labPlace";
             this.labPlace.Size = new System.Drawing.Size(59, 20);
             this.labPlace.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             this.labMagnitude.AutoSize = true;
             this.labMagnitude.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMagnitude.Location = new System.Drawing.Point(20, 131);
+            this.labMagnitude.Location = new System.Drawing.Point(22, 89);
             this.labMagnitude.Name = "labMagnitude";
             this.labMagnitude.Size = new System.Drawing.Size(101, 20);
             this.labMagnitude.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             this.labLongitude.AutoSize = true;
             this.labLongitude.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labLongitude.Location = new System.Drawing.Point(20, 170);
+            this.labLongitude.Location = new System.Drawing.Point(22, 128);
             this.labLongitude.Name = "labLongitude";
             this.labLongitude.Size = new System.Drawing.Size(97, 20);
             this.labLongitude.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             this.labLatitude.AutoSize = true;
             this.labLatitude.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labLatitude.Location = new System.Drawing.Point(20, 214);
+            this.labLatitude.Location = new System.Drawing.Point(22, 172);
             this.labLatitude.Name = "labLatitude";
             this.labLatitude.Size = new System.Drawing.Size(84, 20);
             this.labLatitude.TabIndex = 3;
@@ -86,7 +87,7 @@
             // 
             this.labDate.AutoSize = true;
             this.labDate.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labDate.Location = new System.Drawing.Point(20, 257);
+            this.labDate.Location = new System.Drawing.Point(22, 215);
             this.labDate.Name = "labDate";
             this.labDate.Size = new System.Drawing.Size(55, 20);
             this.labDate.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             this.labHour.AutoSize = true;
             this.labHour.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labHour.Location = new System.Drawing.Point(20, 298);
+            this.labHour.Location = new System.Drawing.Point(22, 256);
             this.labHour.Name = "labHour";
             this.labHour.Size = new System.Drawing.Size(54, 20);
             this.labHour.TabIndex = 5;
@@ -106,7 +107,7 @@
             // 
             this.labInfoHour.AutoSize = true;
             this.labInfoHour.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoHour.Location = new System.Drawing.Point(157, 299);
+            this.labInfoHour.Location = new System.Drawing.Point(159, 257);
             this.labInfoHour.Name = "labInfoHour";
             this.labInfoHour.Size = new System.Drawing.Size(16, 20);
             this.labInfoHour.TabIndex = 11;
@@ -116,7 +117,7 @@
             // 
             this.labInfoDate.AutoSize = true;
             this.labInfoDate.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoDate.Location = new System.Drawing.Point(157, 258);
+            this.labInfoDate.Location = new System.Drawing.Point(159, 216);
             this.labInfoDate.Name = "labInfoDate";
             this.labInfoDate.Size = new System.Drawing.Size(16, 20);
             this.labInfoDate.TabIndex = 10;
@@ -126,7 +127,7 @@
             // 
             this.labInfoLat.AutoSize = true;
             this.labInfoLat.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoLat.Location = new System.Drawing.Point(157, 215);
+            this.labInfoLat.Location = new System.Drawing.Point(159, 173);
             this.labInfoLat.Name = "labInfoLat";
             this.labInfoLat.Size = new System.Drawing.Size(16, 20);
             this.labInfoLat.TabIndex = 9;
@@ -136,7 +137,7 @@
             // 
             this.labInfoLong.AutoSize = true;
             this.labInfoLong.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoLong.Location = new System.Drawing.Point(157, 171);
+            this.labInfoLong.Location = new System.Drawing.Point(159, 129);
             this.labInfoLong.Name = "labInfoLong";
             this.labInfoLong.Size = new System.Drawing.Size(16, 20);
             this.labInfoLong.TabIndex = 8;
@@ -146,7 +147,7 @@
             // 
             this.labInfoMag.AutoSize = true;
             this.labInfoMag.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoMag.Location = new System.Drawing.Point(157, 131);
+            this.labInfoMag.Location = new System.Drawing.Point(159, 89);
             this.labInfoMag.Name = "labInfoMag";
             this.labInfoMag.Size = new System.Drawing.Size(16, 20);
             this.labInfoMag.TabIndex = 7;
@@ -156,17 +157,29 @@
             // 
             this.labInfoPlace.AutoSize = true;
             this.labInfoPlace.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInfoPlace.Location = new System.Drawing.Point(157, 90);
+            this.labInfoPlace.Location = new System.Drawing.Point(159, 48);
             this.labInfoPlace.Name = "labInfoPlace";
             this.labInfoPlace.Size = new System.Drawing.Size(16, 20);
             this.labInfoPlace.TabIndex = 6;
             this.labInfoPlace.Text = "-";
+            // 
+            // butShow
+            // 
+            this.butShow.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butShow.Location = new System.Drawing.Point(26, 318);
+            this.butShow.Name = "butShow";
+            this.butShow.Size = new System.Drawing.Size(205, 36);
+            this.butShow.TabIndex = 12;
+            this.butShow.Text = "More Information";
+            this.butShow.UseVisualStyleBackColor = true;
+            this.butShow.Click += new System.EventHandler(this.butShow_Click);
             // 
             // InfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.butShow);
             this.Controls.Add(this.labInfoHour);
             this.Controls.Add(this.labInfoDate);
             this.Controls.Add(this.labInfoLat);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Label labInfoLong;
         private System.Windows.Forms.Label labInfoMag;
         private System.Windows.Forms.Label labInfoPlace;
+        private System.Windows.Forms.Button butShow;
     }
 }

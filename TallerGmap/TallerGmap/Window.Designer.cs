@@ -1,6 +1,9 @@
 ﻿namespace TallerGmap
 {
-    partial class Window
+    /// <summary>
+    /// This class is the main Window and entablish the connection with the User Controls
+    /// </summary>
+    public partial class Window
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,9 +31,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.earthquakesControl = new TallerGmap.UserControls.EarthquakesControl();
+            this.earthquakesControl = new TallerGmap.UserControls.EarthquakesControl(this);
             this.gmapControl = new TallerGmap.UserControls.GmapControl();
-            this.infoControl = new TallerGmap.UserControls.InfoControl();
+            this.infoControl = new TallerGmap.UserControls.InfoControl(this);
             this.SuspendLayout();
             // 
             // earthquakesControl
@@ -77,6 +80,9 @@
         private UserControls.EarthquakesControl earthquakesControl;
         private UserControls.GmapControl gmapControl;
         private UserControls.InfoControl infoControl;
+
+
+
     }
 }
 

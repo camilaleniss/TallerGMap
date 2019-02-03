@@ -10,11 +10,37 @@ using System.Windows.Forms;
 
 namespace TallerGmap.UserControls
 {
+    /// <summary>
+    /// This class show the information of the selected Earthquake
+    /// </summary>
     public partial class InfoControl : UserControl
     {
-        public InfoControl()
+        private Window window;
+        /// <summary>
+        /// The constructor of the class
+        /// </summary>
+        public InfoControl(Window window)
         {
+            this.window = window;
             InitializeComponent();
+        }
+
+        private void butShow_Click(object sender, EventArgs e)
+        {
+            window.OpenURL();
+        }
+        /// <summary>
+        /// This method modifies the information in the labels with the new information in the array
+        /// </summary>
+        /// <param name="information">The array with the information of the Earthquake</param>
+        public void modifyInformation(string [] information)
+        {
+            labInfoPlace.Text = information[0];
+            labInfoMag.Text = information[1];
+            labInfoLong.Text = information[2];
+            labInfoLat.Text = information[3];
+            labInfoDate.Text = information[4];
+            labInfoHour.Text = information[5];
         }
 
     }

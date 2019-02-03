@@ -194,5 +194,112 @@ namespace TallerGmap.Model
                 }
             }
         }
+
+        /// <summary>
+        /// Sets the selected earthquake to the earthquake in the given index.<para/>
+        /// <b>Pre:</b> The earthquakes list is not null and has at least one earthquake.<para/>
+        /// <b>Post:</b> The selected earthquake is the earthquake in the given index.
+        /// </summary>
+        /// <param name="index">The index of the earthquake. It must be a valid index for the list of earthquakes.</param>
+        public void SelectEarthquake(int index)
+        {
+            SelectedEarthquake = Earthquakes[index];
+        }
+
+        /// <summary>
+        /// Returns the place of the selected earthquake. If there is no selected earthquake, returns "-".
+        /// </summary>
+        /// <returns>Returns the place of the selected earthquake. If there is no selected earthquake, returns "-".</returns>
+        public string GetSelectedPlace()
+        {
+            string place = "-";
+            if(SelectedEarthquake != null)
+            {
+                place = SelectedEarthquake.Place;
+            }
+            return place;
+        }
+
+        /// <summary>
+        /// Returns the magnitude of the selected earthquake. If there is no selected earthquake, returns 0.
+        /// </summary>
+        /// <returns>Returns the magnitude of the selected earthquake. If there is no selected earthquake, returns 0.</returns>
+        public double GetSelectedMagnitude()
+        {
+            double magnitude = 0;
+            if (SelectedEarthquake != null)
+            {
+                magnitude = SelectedEarthquake.Magnitude;
+            }
+            return magnitude;
+        }
+
+        /// <summary>
+        /// Returns the longitude of the selected earthquake. If there is no selected earthquake, returns 0.
+        /// </summary>
+        /// <returns>Returns the longitude of the selected earthquake. If there is no selected earthquake, returns 0.</returns>
+        public double GetSelectedLongitude()
+        {
+            double longitude = 0;
+            if (SelectedEarthquake != null)
+            {
+                longitude = SelectedEarthquake.Longitude;
+            }
+            return longitude;
+        }
+
+        /// <summary>
+        /// Returns the latitude of the selected earthquake. If there is no selected earthquake, returns 0.
+        /// </summary>
+        /// <returns>Returns the latitude of the selected earthquake. If there is no selected earthquake, returns 0.</returns>
+        public double GetSelectedLatitude()
+        {
+            double latitude = 0;
+            if (SelectedEarthquake != null)
+            {
+                latitude = SelectedEarthquake.Latitude;
+            }
+            return latitude;
+        }
+
+        /// <summary>
+        /// Returns the date of the selected earthquake. If there is no selected earthquake, returns "-".
+        /// </summary>
+        /// <returns>Returns the date of the selected earthquake. If there is no selected earthquake, returns "-".</returns>
+        public string GetSelectedDate()
+        {
+            string date = "-";
+            if (SelectedEarthquake != null)
+            {
+                date = SelectedEarthquake.GetDate();
+            }
+            return date;
+        }
+
+        /// <summary>
+        /// Returns the hour of the selected earthquake. If there is no selected earthquake, returns "-".
+        /// </summary>
+        /// <returns>Returns the hour of the selected earthquake. If there is no selected earthquake, returns "-".</returns>
+        public string GetSelectedHour()
+        {
+            string hour = "-";
+            if (SelectedEarthquake != null)
+            {
+                hour = SelectedEarthquake.GetHour();
+            }
+            return hour;
+        }
+
+        /// <summary>
+        /// If there is a selected earthquake, opens its url.
+        /// </summary>
+        public void OpenUrl()
+        {
+            if (SelectedEarthquake != null)
+            {
+                System.Diagnostics.Process.Start(SelectedEarthquake.Url);
+            }
+        }
+        
     }
 }
